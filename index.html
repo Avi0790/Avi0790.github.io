@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Avinaya Khadka — Computer Science student at Arkansas State University. Data analytics, ML forecasting, IT automation.">
+<title>Avinaya Khadka — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f9f7f4;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #1a4d8f;
+    --accent-light: #e8effa;
+    --border: rgba(0,0,0,0.1);
+    --tag-bg: #eef3fb;
+    --tag-text: #1a4d8f;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  .skip-link {
+    position: absolute; top: -40px; left: 1rem;
+    background: var(--accent); color: #fff;
+    padding: 6px 14px; border-radius: 4px; font-size: 14px;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ── Layout ── */
+  .page {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    min-height: 100vh;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* ── Sidebar ── */
+  aside {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 3rem 2rem 3rem 2rem;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+  }
+
+  .portrait {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .sidebar-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+
+  .sidebar-role {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .sidebar-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .sidebar-nav a {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    padding: 5px 0;
+    transition: color 0.15s;
+  }
+  .sidebar-nav a:hover { color: var(--text); text-decoration: none; }
+
+  .sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+  }
+
+  .sidebar-links a {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sidebar-links a:hover { color: var(--accent); text-decoration: none; }
+
+  /* ── Main ── */
+  main {
+    padding: 5rem 3.5rem 5rem 3.5rem;
+    max-width: 760px;
+  }
+
+  section { margin-bottom: 5rem; }
+  section:last-child { margin-bottom: 0; }
+
+  /* ── Typography ── */
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .lead {
+    font-size: 17px;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    max-width: 540px;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .chip {
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 99px;
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    font-weight: 500;
+  }
+
+  /* ── About ── */
+  .about-text { font-size: 15px; color: var(--muted); max-width: 540px; }
+  .about-text p + p { margin-top: 0.75rem; }
+
+  /* ── Education ── */
+  .edu-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .edu-org { font-weight: 500; font-size: 15px; }
+  .edu-degree { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  .edu-date { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .edu-meta { margin-top: 1rem; display: flex; gap: 2rem; }
+  .edu-meta-item { }
+  .edu-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .edu-meta-value { font-size: 15px; font-weight: 500; margin-top: 2px; }
+
+  /* ── Skills ── */
+  .skills-table { width: 100%; border-collapse: collapse; }
+  .skills-table tr { border-bottom: 1px solid var(--border); }
+  .skills-table tr:last-child { border-bottom: none; }
+  .skills-table td { padding: 10px 0; font-size: 14px; vertical-align: top; }
+  .skills-table td:first-child { color: var(--muted); width: 140px; padding-right: 1rem; font-size: 13px; padding-top: 12px; }
+
+  .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-pill { font-size: 13px; padding: 3px 10px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
+
+  /* ── Experience ── */
+  .exp-item { margin-bottom: 2.5rem; }
+  .exp-item:last-child { margin-bottom: 0; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .exp-role { font-weight: 500; font-size: 15px; }
+  .exp-date { font-size: 13px; color: var(--muted); white-space: nowrap; }
+  .exp-org { font-size: 14px; color: var(--accent); margin-bottom: 0.75rem; }
+
+  .exp-bullets { padding-left: 1.1rem; }
+  .exp-bullets li { font-size: 14px; color: var(--muted); margin-bottom: 4px; line-height: 1.65; }
+
+  /* ── Projects ── */
+  .project-item {
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .project-item:last-child { margin-bottom: 0; }
+
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .project-name { font-weight: 500; font-size: 15px; }
+  .project-year { font-size: 13px; color: var(--muted); }
+  .project-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 0.75rem; }
+
+  /* ── Certifications ── */
+  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .cert-list li { font-size: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--muted); display: flex; align-items: baseline; gap: 8px; }
+  .cert-list li:last-child { border-bottom: none; }
+  .cert-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
+
+  /* ── Contact ── */
+  .contact-grid { display: flex; flex-direction: column; gap: 8px; }
+  .contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+  .contact-label { color: var(--muted); width: 80px; font-size: 13px; }
+
+  /* ── Footer ── */
+  footer {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 2rem;
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 700px) {
+    .page { grid-template-columns: 1fr; }
+
+    aside {
+      position: static;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .portrait { margin-bottom: 0; }
+
+    .sidebar-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4px 16px;
+      margin-bottom: 0;
+    }
+
+    .sidebar-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 0;
+    }
+
+    main { padding: 2.5rem 1.5rem; }
+
+    h1 { font-size: 30px; }
+    h2 { font-size: 22px; }
+
+    .edu-block { flex-direction: column; }
+    .exp-header { flex-direction: column; gap: 2px; }
+    .project-header { flex-direction: column; gap: 2px; }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="page">
+
+  <aside aria-label="Sidebar navigation">
+    <div class="portrait" aria-hidden="true">AK</div>
+    <p class="sidebar-name">Avinaya Khadka</p>
+    <p class="sidebar-role">Computer Science · Arkansas State</p>
+
+    <nav aria-label="Page sections">
+      <ul class="sidebar-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-links">
+      <a href="mailto:avinayakhadka32@gmail.com">✉ avinayakhadka32@gmail.com</a>
+      <a href="https://github.com/Avi0790" target="_blank" rel="noopener">⌥ github.com/Avi0790</a>
+      <a href="https://www.linkedin.com/in/avinaya-khadka-cs/" target="_blank" rel="noopener">in linkedin</a>
+      <a href="tel:8704979907">☏ (870) 497-9907</a>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="hero" aria-label="Introduction">
+      <p class="eyebrow">Computer Science · Graduating Dec 2026</p>
+      <h1>Hi, I'm Avinaya.</h1>
+      <p class="lead">
+        CS student at Arkansas State University with hands-on production experience in ML forecasting, Python automation, and IT analytics — built at U.S. Steel. Seeking Data Analyst or IT Analyst roles.
+      </p>
+      <div class="chips">
+        <span class="chip">Data Analytics</span>
+        <span class="chip">ML Forecasting</span>
+        <span class="chip">IT Automation</span>
+        <span class="chip">Python</span>
+        <span class="chip">ServiceNow</span>
+        <span class="chip">SQL</span>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About</h2>
+      <div class="about-text">
+        <p>
+          I build data-driven tools with a focus on operational impact. At U.S. Steel, I designed ML models that forecasted IT ticket volume and automated daily incident reporting — work that directly improved capacity planning and reduced manual overhead for the IT operations team.
+        </p>
+        <p>
+          I'm drawn to problems at the intersection of data and IT systems: messy data, real constraints, real users. I care about building things that hold up in production — not just in notebooks.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" aria-labelledby="edu-heading">
+      <h2 id="edu-heading">Education</h2>
+      <div class="edu-block">
+        <div>
+          <p class="edu-org">Arkansas State University</p>
+          <p class="edu-degree"><strong>B.S.</strong> Computer Science &nbsp;·&nbsp; 2022 – Dec 2026</p>
+        </div>
+        <p class="edu-date">Jonesboro, AR</p>
+      </div>
+      <div class="edu-meta">
+        <div class="edu-meta-item">
+          <p class="edu-meta-label">Relevant coursework</p>
+          <p class="edu-meta-value" style="font-size:14px; font-weight:400; color:var(--muted);">Database Management · AI &amp; Machine Learning · Data Structures · Algorithms · Statistics · Computer Organization</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Technical Skills</h2>
+      <table class="skills-table" aria-label="Technical skills by category">
+        <tbody>
+          <tr>
+            <td>Data &amp; Analytics</td>
+            <td><div class="skill-pills"><span class="skill-pill">SQL</span><span class="skill-pill">Python</span><span class="skill-pill">Pandas</span><span class="skill-pill">NumPy</span><span class="skill-pill">R</span><span class="skill-pill">Excel</span><span class="skill-pill">Statistics</span></div></td>
+          </tr>
+          <tr>
+            <td>Visualization</td>
+            <td><div class="skill-pills"><span class="skill-pill">Power BI</span><span class="skill-pill">Tableau</span><span class="skill-pill">Matplotlib</span></div></td>
+          </tr>
+          <tr>
+            <td>ML &amp; Forecasting</td>
+            <td><div class="skill-pills"><span class="skill-pill">Prophet</span><span class="skill-pill">ARIMA</span><span class="skill-pill">NLP</span><span class="skill-pill">scikit-learn</span></div></td>
+          </tr>
+          <tr>
+            <td>IT &amp; Systems</td>
+            <td><div class="skill-pills"><span class="skill-pill">ServiceNow</span><span class="skill-pill">Active Directory</span><span class="skill-pill">Microsoft 365</span><span class="skill-pill">CrowdStrike</span><span class="skill-pill">Linux</span><span class="skill-pill">Incident Response</span></div></td>
+          </tr>
+          <tr>
+            <td>APIs &amp; DevTools</td>
+            <td><div class="skill-pills"><span class="skill-pill">REST APIs</span><span class="skill-pill">ServiceNow APIs</span><span class="skill-pill">Git</span></div></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" aria-labelledby="exp-heading">
+      <h2 id="exp-heading">Professional Experience</h2>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <p class="exp-role">AI/ML &amp; IT Analytics Intern — U.S. Steel (Big River Steel)</p>
+          <p class="exp-date">May – Dec 2025</p>
+        </div>
+        <p class="exp-org">Osceola, AR</p>
+        <ul class="exp-bullets">
+          <li>Built IT ticket forecasting models (Prophet, ARIMA) on 12+ months of ServiceNow data, identifying weekly and seasonal incident patterns for IT capacity planning.</li>
+          <li>Automated daily incident reporting using Python and ServiceNow REST APIs, eliminating manual compilation and improving real-time visibility.</li>
+          <li>Resolved 50+ Level 1–2 IT support tickets per week across hardware, software, VoIP, and remote desktop environments.</li>
+          <li>Administered Active Directory accounts and group memberships for new hires across a multi-site enterprise.</li>
+          <li>Deployed and configured 30+ endpoints (thin clients, desktops, laptops, iPads), ensuring security compliance.</li>
+          <li>Assisted with Cisco switch configuration and network diagnostics across the plant floor.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <p class="exp-role">Teaching Assistant — Mathematics &amp; Statistics</p>
+          <p class="exp-date">Dec 2024 – May 2025</p>
+        </div>
+        <p class="exp-org">Arkansas State University · Jonesboro, AR</p>
+        <ul class="exp-bullets">
+          <li>Supported undergraduate Math and Statistics instruction, assisting 30+ students with quantitative methods and data interpretation.</li>
+          <li>Provided one-on-one tutoring during lab sessions reinforcing statistical reasoning.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <p class="exp-role">Computer Lab Assistant</p>
+          <p class="exp-date">Dec 2025 – Present</p>
+        </div>
+        <p class="exp-org">Arkansas State University IT Dept · Jonesboro, AR</p>
+        <ul class="exp-bullets">
+          <li>Supervise daily operations of a campus computer lab, maintaining workstations, printers, and peripherals.</li>
+          <li>Resolve user access issues, enforce IT policies, and provide frontline technical support to students and faculty.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" aria-labelledby="proj-heading">
+      <h2 id="proj-heading">Projects</h2>
+
+      <div class="project-item">
+        <div class="project-header">
+          <p class="project-name">ServiceNow Incident Intelligence System</p>
+          <p class="project-year">May 2025</p>
+        </div>
+        <p class="project-desc">Python automation integrated with ServiceNow APIs to parse and summarize daily IT incidents using NLP keyword grouping, eliminating manual report compilation. Generated structured HTML dashboard summaries for the IT operations team, improving incident visibility and response prioritization.</p>
+        <div class="chips" style="margin-bottom:0">
+          <span class="chip">Python</span><span class="chip">ServiceNow REST API</span><span class="chip">NLP</span><span class="chip">HTML Templating</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <p class="project-name">IT Ticket Volume Forecasting Model</p>
+          <p class="project-year">May 2025</p>
+        </div>
+        <p class="project-desc">Trained time-series forecasting models (Prophet, ARIMA) on historical ServiceNow ticket data to predict weekly and seasonal IT incident volume. Identified recurring spike patterns and translated findings into capacity planning recommendations for the IT operations team.</p>
+        <div class="chips" style="margin-bottom:0">
+          <span class="chip">Python</span><span class="chip">Prophet</span><span class="chip">ARIMA</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <p class="project-name">ML-Powered Analytics API Backend</p>
+          <p class="project-year">2025 – Present</p>
+        </div>
+        <p class="project-desc">Building a Python-based backend exposing forecasting and NLP model outputs via REST APIs in JSON format, designed for scalability and future frontend integration.</p>
+        <div class="chips" style="margin-bottom:0">
+          <span class="chip">Python</span><span class="chip">REST APIs</span><span class="chip">JSON</span><span class="chip">System Architecture</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" aria-labelledby="cert-heading">
+      <h2 id="cert-heading">Certifications</h2>
+      <ul class="cert-list">
+        <li>Google Data Analytics Certificate — Coursera (2024)</li>
+        <li>Google AI for Everyone — Coursera (2024)</li>
+        <li>Google Python for Everybody — Coursera (2024)</li>
+      </ul>
+    </section>
+
+    <!-- Leadership -->
+    <section id="leadership" aria-labelledby="lead-heading">
+      <h2 id="lead-heading">Leadership</h2>
+      <div class="exp-item" style="margin-bottom:0">
+        <div class="exp-header">
+          <p class="exp-role">Vice President — Student Cultural Organization</p>
+          <p class="exp-date">Dec 2024 – Dec 2025</p>
+        </div>
+        <p class="exp-org">Arkansas State University</p>
+        <ul class="exp-bullets">
+          <li>Led planning and execution of cultural events, coordinating a team of students and growing attendance.</li>
+          <li>Managed event logistics, team coordination, and promotion strategy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p style="font-size:15px; color:var(--muted); margin-bottom:1.25rem;">The fastest way to reach me is email. I'm also active on GitHub and LinkedIn.</p>
+      <div class="contact-grid">
+        <div class="contact-row"><span class="contact-label">Email</span><a href="mailto:avinayakhadka32@gmail.com">avinayakhadka32@gmail.com</a></div>
+        <div class="contact-row"><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/avinaya-khadka-cs/" target="_blank" rel="noopener">linkedin.com/in/avinaya-khadka-cs</a></div>
+        <div class="contact-row"><span class="contact-label">GitHub</span><a href="https://github.com/Avi0790" target="_blank" rel="noopener">github.com/Avi0790</a></div>
+        <div class="contact-row"><span class="contact-label">Phone</span><a href="tel:8704979907">(870) 497-9907</a></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>© 2026 Avinaya Khadka · Built with accessibility-first HTML/CSS</footer>
+
+</div>
+</body>
+</html>
