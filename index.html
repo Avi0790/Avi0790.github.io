@@ -21,9 +21,7 @@
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
-
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--bg);
@@ -44,7 +42,6 @@
   }
   .skip-link:focus { top: 1rem; }
 
-  /* ── Layout ── */
   .page {
     display: grid;
     grid-template-columns: 240px 1fr;
@@ -53,16 +50,14 @@
     margin: 0 auto;
   }
 
-  /* ── Sidebar ── */
   aside {
     position: sticky;
     top: 0;
     height: 100vh;
-    padding: 3rem 2rem 3rem 2rem;
+    padding: 3rem 2rem;
     border-right: 1px solid var(--border);
     display: flex;
     flex-direction: column;
-    gap: 0;
     overflow-y: auto;
   }
 
@@ -70,15 +65,10 @@
     width: 72px;
     height: 72px;
     border-radius: 50%;
-    background: var(--accent-light);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    color: var(--accent);
+    object-fit: cover;
     margin-bottom: 1.25rem;
     flex-shrink: 0;
+    border: 2px solid var(--accent-light);
   }
 
   .sidebar-name {
@@ -98,7 +88,6 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0;
     margin-bottom: 2.5rem;
   }
 
@@ -127,16 +116,14 @@
   }
   .sidebar-links a:hover { color: var(--accent); text-decoration: none; }
 
-  /* ── Main ── */
   main {
-    padding: 5rem 3.5rem 5rem 3.5rem;
+    padding: 5rem 3.5rem;
     max-width: 760px;
   }
 
   section { margin-bottom: 5rem; }
   section:last-child { margin-bottom: 0; }
 
-  /* ── Typography ── */
   h1 {
     font-family: 'DM Serif Display', serif;
     font-size: 42px;
@@ -187,26 +174,17 @@
     font-weight: 500;
   }
 
-  /* ── About ── */
   .about-text { font-size: 15px; color: var(--muted); max-width: 540px; }
   .about-text p + p { margin-top: 0.75rem; }
 
-  /* ── Education ── */
-  .edu-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-  }
+  .edu-block { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
   .edu-org { font-weight: 500; font-size: 15px; }
   .edu-degree { font-size: 14px; color: var(--muted); margin-top: 2px; }
   .edu-date { font-size: 13px; color: var(--muted); white-space: nowrap; }
-  .edu-meta { margin-top: 1rem; display: flex; gap: 2rem; }
-  .edu-meta-item { }
+  .edu-meta { margin-top: 1rem; }
   .edu-meta-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-  .edu-meta-value { font-size: 15px; font-weight: 500; margin-top: 2px; }
+  .edu-meta-value { font-size: 14px; font-weight: 400; color: var(--muted); margin-top: 4px; }
 
-  /* ── Skills ── */
   .skills-table { width: 100%; border-collapse: collapse; }
   .skills-table tr { border-bottom: 1px solid var(--border); }
   .skills-table tr:last-child { border-bottom: none; }
@@ -216,26 +194,15 @@
   .skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
   .skill-pill { font-size: 13px; padding: 3px 10px; border-radius: 4px; background: var(--tag-bg); color: var(--tag-text); }
 
-  /* ── Experience ── */
   .exp-item { margin-bottom: 2.5rem; }
   .exp-item:last-child { margin-bottom: 0; }
-
-  .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 0.25rem;
-  }
-
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.25rem; }
   .exp-role { font-weight: 500; font-size: 15px; }
   .exp-date { font-size: 13px; color: var(--muted); white-space: nowrap; }
   .exp-org { font-size: 14px; color: var(--accent); margin-bottom: 0.75rem; }
-
   .exp-bullets { padding-left: 1.1rem; }
   .exp-bullets li { font-size: 14px; color: var(--muted); margin-bottom: 4px; line-height: 1.65; }
 
-  /* ── Projects ── */
   .project-item {
     padding: 1.5rem;
     background: var(--surface);
@@ -244,24 +211,20 @@
     margin-bottom: 1rem;
   }
   .project-item:last-child { margin-bottom: 0; }
-
   .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
   .project-name { font-weight: 500; font-size: 15px; }
   .project-year { font-size: 13px; color: var(--muted); }
   .project-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 0.75rem; }
 
-  /* ── Certifications ── */
-  .cert-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .cert-list { list-style: none; display: flex; flex-direction: column; }
   .cert-list li { font-size: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); color: var(--muted); display: flex; align-items: baseline; gap: 8px; }
   .cert-list li:last-child { border-bottom: none; }
   .cert-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
 
-  /* ── Contact ── */
   .contact-grid { display: flex; flex-direction: column; gap: 8px; }
   .contact-row { display: flex; align-items: center; gap: 10px; font-size: 14px; }
   .contact-label { color: var(--muted); width: 80px; font-size: 13px; }
 
-  /* ── Footer ── */
   footer {
     grid-column: 1 / -1;
     border-top: 1px solid var(--border);
@@ -271,43 +234,18 @@
     text-align: center;
   }
 
-  /* ── Mobile ── */
   @media (max-width: 700px) {
     .page { grid-template-columns: 1fr; }
-
     aside {
-      position: static;
-      height: auto;
-      border-right: none;
+      position: static; height: auto; border-right: none;
       border-bottom: 1px solid var(--border);
       padding: 2rem 1.5rem;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      gap: 1rem;
     }
-
-    .portrait { margin-bottom: 0; }
-
-    .sidebar-nav {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 4px 16px;
-      margin-bottom: 0;
-    }
-
-    .sidebar-links {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 0;
-    }
-
+    .sidebar-nav { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 0; }
+    .sidebar-links { flex-direction: row; flex-wrap: wrap; gap: 10px; margin-top: 0.75rem; }
     main { padding: 2.5rem 1.5rem; }
-
     h1 { font-size: 30px; }
     h2 { font-size: 22px; }
-
     .edu-block { flex-direction: column; }
     .exp-header { flex-direction: column; gap: 2px; }
     .project-header { flex-direction: column; gap: 2px; }
@@ -321,7 +259,7 @@
 <div class="page">
 
   <aside aria-label="Sidebar navigation">
-    <img src="photo.jpg" alt="Avinaya Khadka" class="portrait" style="object-fit:cover;">
+    <img src="headshot.jpeg" alt="Avinaya Khadka" class="portrait">
     <p class="sidebar-name">Avinaya Khadka</p>
     <p class="sidebar-role">Computer Science · Arkansas State</p>
 
@@ -348,13 +286,10 @@
 
   <main id="main">
 
-    <!-- Hero -->
     <section id="hero" aria-label="Introduction">
       <p class="eyebrow">Computer Science · Graduating Dec 2026</p>
       <h1>Hi, I'm Avinaya.</h1>
-      <p class="lead">
-        CS student at Arkansas State University with hands-on production experience in ML forecasting, Python automation, and IT analytics — built at U.S. Steel. Seeking Data Analyst or IT Analyst roles.
-      </p>
+      <p class="lead">CS student at Arkansas State University with hands-on production experience in ML forecasting, Python automation, and IT analytics — built at U.S. Steel. Seeking Data Analyst or IT Analyst roles.</p>
       <div class="chips">
         <span class="chip">Data Analytics</span>
         <span class="chip">ML Forecasting</span>
@@ -365,20 +300,14 @@
       </div>
     </section>
 
-    <!-- About -->
     <section id="about" aria-labelledby="about-heading">
       <h2 id="about-heading">About</h2>
       <div class="about-text">
-        <p>
-          I build data-driven tools with a focus on operational impact. At U.S. Steel, I designed ML models that forecasted IT ticket volume and automated daily incident reporting — work that directly improved capacity planning and reduced manual overhead for the IT operations team.
-        </p>
-        <p>
-          I'm drawn to problems at the intersection of data and IT systems: messy data, real constraints, real users. I care about building things that hold up in production — not just in notebooks.
-        </p>
+        <p>I build data-driven tools with a focus on operational impact. At U.S. Steel, I designed ML models that forecasted IT ticket volume and automated daily incident reporting — work that directly improved capacity planning and reduced manual overhead for the IT operations team.</p>
+        <p>I'm drawn to problems at the intersection of data and IT systems: messy data, real constraints, real users. I care about building things that hold up in production — not just in notebooks.</p>
       </div>
     </section>
 
-    <!-- Education -->
     <section id="education" aria-labelledby="edu-heading">
       <h2 id="edu-heading">Education</h2>
       <div class="edu-block">
@@ -389,14 +318,11 @@
         <p class="edu-date">Jonesboro, AR</p>
       </div>
       <div class="edu-meta">
-        <div class="edu-meta-item">
-          <p class="edu-meta-label">Relevant coursework</p>
-          <p class="edu-meta-value" style="font-size:14px; font-weight:400; color:var(--muted);">Database Management · AI &amp; Machine Learning · Data Structures · Algorithms · Statistics · Computer Organization</p>
-        </div>
+        <p class="edu-meta-label">Relevant coursework</p>
+        <p class="edu-meta-value">Database Management · AI &amp; Machine Learning · Data Structures · Algorithms · Statistics · Computer Organization</p>
       </div>
     </section>
 
-    <!-- Skills -->
     <section id="skills" aria-labelledby="skills-heading">
       <h2 id="skills-heading">Technical Skills</h2>
       <table class="skills-table" aria-label="Technical skills by category">
@@ -425,7 +351,6 @@
       </table>
     </section>
 
-    <!-- Experience -->
     <section id="experience" aria-labelledby="exp-heading">
       <h2 id="exp-heading">Professional Experience</h2>
 
@@ -465,12 +390,11 @@
         <p class="exp-org">Arkansas State University IT Dept · Jonesboro, AR</p>
         <ul class="exp-bullets">
           <li>Supervise daily operations of a campus computer lab, maintaining workstations, printers, and peripherals.</li>
-          <li>Resolve user access issues, enforce IT policies, and provide frontline technical support to students and faculty.</li>
+          <li>Resolve user access issues, enforce IT policies, and provide frontline technical support.</li>
         </ul>
       </div>
     </section>
 
-    <!-- Projects -->
     <section id="projects" aria-labelledby="proj-heading">
       <h2 id="proj-heading">Projects</h2>
 
@@ -479,7 +403,7 @@
           <p class="project-name">ServiceNow Incident Intelligence System</p>
           <p class="project-year">May 2025</p>
         </div>
-        <p class="project-desc">Python automation integrated with ServiceNow APIs to parse and summarize daily IT incidents using NLP keyword grouping, eliminating manual report compilation. Generated structured HTML dashboard summaries for the IT operations team, improving incident visibility and response prioritization.</p>
+        <p class="project-desc">Python automation integrated with ServiceNow APIs to parse and summarize daily IT incidents using NLP keyword grouping, eliminating manual report compilation. Generated structured HTML dashboard summaries for the IT operations team.</p>
         <div class="chips" style="margin-bottom:0">
           <span class="chip">Python</span><span class="chip">ServiceNow REST API</span><span class="chip">NLP</span><span class="chip">HTML Templating</span>
         </div>
@@ -490,7 +414,7 @@
           <p class="project-name">IT Ticket Volume Forecasting Model</p>
           <p class="project-year">May 2025</p>
         </div>
-        <p class="project-desc">Trained time-series forecasting models (Prophet, ARIMA) on historical ServiceNow ticket data to predict weekly and seasonal IT incident volume. Identified recurring spike patterns and translated findings into capacity planning recommendations for the IT operations team.</p>
+        <p class="project-desc">Trained time-series forecasting models (Prophet, ARIMA) on historical ServiceNow ticket data to predict weekly and seasonal IT incident volume. Identified recurring spike patterns and translated findings into capacity planning recommendations.</p>
         <div class="chips" style="margin-bottom:0">
           <span class="chip">Python</span><span class="chip">Prophet</span><span class="chip">ARIMA</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span>
         </div>
@@ -508,7 +432,6 @@
       </div>
     </section>
 
-    <!-- Certifications -->
     <section id="certifications" aria-labelledby="cert-heading">
       <h2 id="cert-heading">Certifications</h2>
       <ul class="cert-list">
@@ -518,7 +441,6 @@
       </ul>
     </section>
 
-    <!-- Leadership -->
     <section id="leadership" aria-labelledby="lead-heading">
       <h2 id="lead-heading">Leadership</h2>
       <div class="exp-item" style="margin-bottom:0">
@@ -534,7 +456,6 @@
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact" aria-labelledby="contact-heading">
       <h2 id="contact-heading">Contact</h2>
       <p style="font-size:15px; color:var(--muted); margin-bottom:1.25rem;">The fastest way to reach me is email. I'm also active on GitHub and LinkedIn.</p>
